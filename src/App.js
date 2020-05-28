@@ -54,11 +54,13 @@ class App extends Component {
   };
   positiveNegative = () => {
     if (this.state.input.indexOf("-") == -1) {
-      this.setState({ input: "-"+this.state.input });
+      this.setState({ input: "-" + this.state.input });
+    } else {
+      this.setState({ input: this.state.input.substr(1) });
     }
-    else{
-      this.setState({input: this.state.input.substr(1)})
-    }
+  };
+  delete = () => {
+    this.setState({ input: this.state.input.substr(0,this.state.input.length-1) });
   };
   calculate = (val) => {
     if (this.state.operator !== "") {
@@ -127,7 +129,9 @@ class App extends Component {
             <Button handleClick={this.divide}>/</Button>
           </div>
           <div className="row">
-            <Button handleClick ={this.positiveNegative}>+-</Button>
+            <Button></Button>
+            <Button handleClick={this.positiveNegative}>+-</Button>
+            <Button handleClick={this.delete}>X</Button>
             <Clear handleClick={this.clearInput}>Clear</Clear>
           </div>
         </div>
