@@ -1,0 +1,13 @@
+.clear{
+    display: flex;
+    height: 4em;
+    flex: 1;
+    background-color: white;
+    justify-content: center;
+    color: black;
+    outline: 1px solid black;
+    align-items: center;
+    font-size: large;
+    font-weight: bold;
+
+}
