@@ -1,13 +1,16 @@
 import React, { Component } from "react";
 import "./input.css";
 
-class Input extends Component{
-    render(){
-        return(
-            <div className="input">
-                {this.props.children}
-            </div>
-        )
-    }
+class Input extends Component {
+  render() {
+    return (
+      <div
+        className="input"
+        onClick={() => this.props.handleClick(this.props.children)}
+      >
+        {this.props.children}
+      </div>
+    );
+  }
 }
-export default Input
+export default Input;

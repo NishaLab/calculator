@@ -9,6 +9,7 @@
   background-color: aliceblue;
   color: black;
   outline: auto;
+  cursor: pointer;
 }
 
 .operator{
