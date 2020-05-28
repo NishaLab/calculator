@@ -56,11 +56,11 @@ class App extends Component {
     if (this.state.input.indexOf("-") == -1) {
       this.setState({ input: "-" + this.state.input });
     } else {
-      this.setState({ input: this.state.input.substr(1) });
+      this.setState({ input: this.state.input.slice(1,) });
     }
   };
   delete = () => {
-    this.setState({ input: this.state.input.substr(0,this.state.input.length-1) });
+    this.setState({ input: this.state.input.slice(0,-1) });
   };
   calculate = (val) => {
     if (this.state.operator !== "") {
