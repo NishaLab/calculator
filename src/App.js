@@ -17,7 +17,7 @@ class App extends Component {
     this.setState({ input: this.state.input + val });
   };
   addZeroToInput = (val) => {
-    if(this.state.input !=="")
+    if (this.state.input !== "")
       this.setState({ input: this.state.input + val });
   };
 
@@ -46,33 +46,49 @@ class App extends Component {
     this.setState({ prevNum: this.state.input });
     this.setState({ input: "" });
   };
-  
+
   divide = (val) => {
     this.setState({ operator: "/" });
     this.setState({ prevNum: this.state.input });
     this.setState({ input: "" });
   };
+  positiveNegative = () => {
+    if (this.state.input.indexOf("-") == -1) {
+      this.setState({ input: "-"+this.state.input });
+    }
+    else{
+      this.setState({input: this.state.input.substr(1)})
+    }
+  };
   calculate = (val) => {
-    if (this.state.operator !== "" ) {
-      if(this.state.operator =="+"){
-        this.setState({input:parseFloat(this.state.prevNum) + parseFloat(this.state.input)})
-        this.setState({prevNum:this.setState.input})
-        this.setState({operator:""})
+    if (this.state.operator !== "") {
+      if (this.state.operator == "+") {
+        this.setState({
+          input: parseFloat(this.state.prevNum) + parseFloat(this.state.input),
+        });
+        this.setState({ prevNum: this.setState.input });
+        this.setState({ operator: "" });
       }
-      if(this.state.operator =="-"){
-        this.setState({input:parseFloat(this.state.prevNum) - parseFloat(this.state.input)})
-        this.setState({prevNum:this.setState.input})
-        this.setState({operator:""})
+      if (this.state.operator == "-") {
+        this.setState({
+          input: parseFloat(this.state.prevNum) - parseFloat(this.state.input),
+        });
+        this.setState({ prevNum: this.setState.input });
+        this.setState({ operator: "" });
       }
-      if(this.state.operator =="*"){
-        this.setState({input:parseFloat(this.state.prevNum) * parseFloat(this.state.input)})
-        this.setState({prevNum:this.setState.input})
-        this.setState({operator:""})
+      if (this.state.operator == "*") {
+        this.setState({
+          input: parseFloat(this.state.prevNum) * parseFloat(this.state.input),
+        });
+        this.setState({ prevNum: this.setState.input });
+        this.setState({ operator: "" });
       }
-      if(this.state.operator =="/"){
-        this.setState({input:parseFloat(this.state.prevNum) / parseFloat(this.state.input)})
-        this.setState({prevNum:this.setState.input})
-        this.setState({operator:""})
+      if (this.state.operator == "/") {
+        this.setState({
+          input: parseFloat(this.state.prevNum) / parseFloat(this.state.input),
+        });
+        this.setState({ prevNum: this.setState.input });
+        this.setState({ operator: "" });
       }
     }
   };
@@ -111,6 +127,7 @@ class App extends Component {
             <Button handleClick={this.divide}>/</Button>
           </div>
           <div className="row">
+            <Button handleClick ={this.positiveNegative}>+-</Button>
             <Clear handleClick={this.clearInput}>Clear</Clear>
           </div>
         </div>
