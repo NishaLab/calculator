@@ -6,10 +6,15 @@ class Button extends Component {
     return val === "+" || val === "-" || val ==="*" || val ==="/";
   };
   render() {
+    let data = this.props.data;
+    if(data === undefined){
+      data = "";
+    }
+
     return (
       <div
         className={`button ${
-          this.isOperator(this.props.children) ? "operator" : ""
+          this.isOperator(this.props.children) ? "operator" : data
         }`}
         onClick={() => this.props.handleClick(this.props.children)}
       >
