@@ -15,3 +15,13 @@
 .operator{
     background-color: orange;
 }
+
+.negative{
+  width: 100px;
+  flex: unset;
+}
+
+.delete{
+  width: 100px;
+  flex: unset;
+}

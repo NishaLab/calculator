@@ -129,8 +129,8 @@ class App extends Component {
             <Button handleClick={this.divide}>/</Button>
           </div>
           <div className="row">
-            <Button handleClick={this.positiveNegative}>+-</Button>
-            <Button handleClick={this.delete}>X</Button>
+            <Button handleClick={this.positiveNegative} data = "negative">+-</Button>
+            <Button handleClick={this.delete} data = "delete">X</Button>
             <Clear handleClick={this.clearInput}>Clear</Clear>
           </div>
         </div>
