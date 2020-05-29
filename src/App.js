@@ -5,6 +5,7 @@ import "./App.css";
 import Button from "./components/Button";
 import Input from "./components/input";
 import Clear from "./components/clear";
+import {evaluate} from 'mathjs';
 class App extends Component {
   constructor(props) {
     super(props);
@@ -66,28 +67,28 @@ class App extends Component {
     if (this.state.operator !== "") {
       if (this.state.operator == "+") {
         this.setState({
-          input: parseFloat(this.state.prevNum) + parseFloat(this.state.input),
+          input: evaluate(this.state.prevNum) + evaluate(this.state.input),
         });
         this.setState({ prevNum: this.setState.input });
         this.setState({ operator: "" });
       }
       if (this.state.operator == "-") {
         this.setState({
-          input: parseFloat(this.state.prevNum) - parseFloat(this.state.input),
+          input: evaluate(this.state.prevNum) - evaluate(this.state.input),
         });
         this.setState({ prevNum: this.setState.input });
         this.setState({ operator: "" });
       }
       if (this.state.operator == "*") {
         this.setState({
-          input: parseFloat(this.state.prevNum) * parseFloat(this.state.input),
+          input: evaluate(this.state.prevNum) * evaluate(this.state.input),
         });
         this.setState({ prevNum: this.setState.input });
         this.setState({ operator: "" });
       }
       if (this.state.operator == "/") {
         this.setState({
-          input: parseFloat(this.state.prevNum) / parseFloat(this.state.input),
+          input: evaluate(this.state.prevNum) / evaluate(this.state.input),
         });
         this.setState({ prevNum: this.setState.input });
         this.setState({ operator: "" });
